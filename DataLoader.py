@@ -11,7 +11,7 @@ def load_train_data(train_input_path, train_truth_path):
     truth_path: path containing training truth data
 
     Output:
-    Nested list of training data. Each sublist refers to an input read from train_input_path. Each item in sublist is of the format [sentence, 0/1, index of wrong word, right word, wrong word], where 0 indicates wrong sentence and 1 indicates right sentence. Sublists ensure that the right and wrong sentences of the same input are binded together.
+    Nested list of training data. Each sublist refers to an input read from train_input_path. Each item in sublist is of the form [sentence, 0/1, index of wrong word, correct word, wrong word], where 0 indicates wrong sentence and 1 indicates correct sentence. Sublists ensure that the right and wrong sentences of the same input are binded together.
 
     """
     train_input = open(train_input_path, encoding='utf-8', errors='ignore').readlines()
@@ -72,6 +72,7 @@ def shuffle(data, type):
     data: training data to be shuffled
 
     Output:
+    Shuffled data
 
     """
     if type == 'single':
@@ -91,6 +92,15 @@ def shuffle(data, type):
 
 
 def load_test_data(test_input_path, test_truth_path):
+    """
+    Input:
+    input_path: path containing test input data
+    truth_path: path containing test truth data
+
+    Output:
+    List of test data. Each item is of the form [sentence, 0/1, [index of wrong word 1, correct word 1, index of wrong word 2, correct word 2, ...]], where 0 indicates wrong sentence and 1 indicates correct sentence. If the sentence is correct, the third position of the item would be ['0'].
+
+    """
     test_input = open(test_input_path, encoding='utf-8', errors='ignore').readlines()
     test_true = open(test_truth_path, encoding='utf-8', errors='ignore').readlines()
 
