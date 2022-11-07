@@ -4,7 +4,7 @@ import warnings
 import copy
 import itertools
 
-def load_train_data(train_input_path, train_truth_path):
+def load_train_data(train_input_path, train_truth_path, original=False):
     """
     Input:
     input_path: path containing training input data
@@ -32,36 +32,37 @@ def load_train_data(train_input_path, train_truth_path):
             right_word = trth[j + 1]
             wrong_word = sentence[index - 1]
             index_wrong_word[j + 1] = wrong_word
-            sentence = re.sub(sentence[index - 1], right_word, sentence)
-        right_sentence = sentence
+            sentence = sentence[:index - 1] + right_word + sentence[index:]
 
-        # For each input, get several wrong sentences where each wrong sentence contains only one wrong word
+        right_sentence = sentence
+        
         for k in range(1, len(trth), 2): 
             index = int(trth[k])
             right_word = trth[k + 1]
             wrong_word = index_wrong_word[k + 1]
-            temp_wrong_sentences = re.sub(right_sentence[index - 1], wrong_word, right_sentence)
+            temp_wrong_sentences = right_sentence[:index - 1] + wrong_word + right_sentence[index:]
             
             # For each input sentence, bind right and wrong sentences together and store in sentence_data
             temp_list_right = []
             temp_list_right.append(right_sentence)
-            temp_list_right.append(1) # note: different from paper, here 1 indicates right sentences
-            temp_list_right.append(index)
-            temp_list_right.append(right_word)
-            temp_list_right.append(wrong_word)
-            sentence_data.append(temp_list_right)
+            temp_list_right.append(0) # here 0 indicates right sentences
+            if not original:
+                temp_list_right.append(index)
+                temp_list_right.append(right_word)
+                temp_list_right.append(wrong_word)
+            if temp_list_right not in sentence_data:
+                sentence_data.append(temp_list_right)
 
             temp_list_wrong = []
             temp_list_wrong.append(temp_wrong_sentences)
-            temp_list_wrong.append(0) # note: different from paper, here 0 indicates wrong sentences
+            temp_list_wrong.append(1) # here 1 indicates wrong sentences
             temp_list_wrong.append(index)
             temp_list_wrong.append(right_word)
             temp_list_wrong.append(wrong_word)
             sentence_data.append(temp_list_wrong)
-        
-        train_data.append(sentence_data)
-
-    print('Number of training inputs: ', len(train_data))
+            
+        if sentence_data not in  train_data:
+            train_data.append(sentence_data)
 
     return train_data
 
@@ -75,11 +76,11 @@ def shuffle(data, type):
     Shuffled data
 
     """
-    if type == 'single':
+    if type == 'single' or type == 'original':
         flat_data = list(itertools.chain(*data))
         random.seed()
         random.shuffle(flat_data)
-        print('Conducted single shuffle')
+        print('Conducted {} shuffle'.format(type))
         return flat_data
     elif type == 'pair':
         random.seed()
@@ -111,16 +112,14 @@ def load_test_data(test_input_path, test_truth_path):
         trth = test_true[i].strip().split(", ")
         sentence = inp[1]
         if len(trth) == 2:
-            flag = 1 # indication of right sentence
+            flag = 0 # indication of right sentence
         else:
-            flag = 0 # indication of wrong sentence
+            flag = 1 # indication of wrong sentence
         right_word_info = trth[1:len(trth)]
         temp_list.append(sentence)
         temp_list.append(flag)
         temp_list.append(right_word_info)
         test_data.append(temp_list)
-
-    print('Number of testing sentences: ', len(test_data))
 
     return test_data
 

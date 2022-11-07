@@ -1,0 +1,54 @@
+Conducted pair shuffle
+Number of training inputs:  29354
+Number of testing sentences:  1100
+Epoch 0; Average train loss: 0.6608664676010804
+Accuracy: 0.7709090909090909
+Epoch 1; Average train loss: 0.5274843604688816
+Accuracy: 0.7972727272727272
+Epoch 2; Average train loss: 0.45867249941617866
+Accuracy: 0.8172727272727273
+Epoch 3; Average train loss: 0.4070629644590545
+Accuracy: 0.8209090909090909
+Epoch 4; Average train loss: 0.36351167261925493
+Accuracy: 0.8281818181818181
+Epoch 5; Average train loss: 0.3220941401904321
+Accuracy: 0.8245454545454546
+Epoch 6; Average train loss: 0.2925950767931446
+Accuracy: 0.83
+Epoch 7; Average train loss: 0.2691281124453833
+Accuracy: 0.83
+Epoch 8; Average train loss: 0.24783320052878305
+Accuracy: 0.83
+Epoch 9; Average train loss: 0.23169227062791561
+Accuracy: 0.8290909090909091
+Epoch 10; Average train loss: 0.21179332584383895
+Accuracy: 0.8318181818181818
+Epoch 11; Average train loss: 0.1994957762804378
+Accuracy: 0.8327272727272728
+Epoch 12; Average train loss: 0.1857833370451857
+Accuracy: 0.8327272727272728
+Epoch 13; Average train loss: 0.1750086161938055
+Accuracy: 0.8290909090909091
+Epoch 14; Average train loss: 0.16687374029926436
+Accuracy: 0.8327272727272728
+Epoch 15; Average train loss: 0.15723569965385603
+Accuracy: 0.8318181818181818
+Epoch 16; Average train loss: 0.15371175944407658
+Accuracy: 0.8327272727272728
+Epoch 17; Average train loss: 0.14683246615386214
+Accuracy: 0.8236363636363636
+Epoch 18; Average train loss: 0.14294777318201513
+Accuracy: 0.8327272727272728
+Epoch 19; Average train loss: 0.13765801475699452
+Accuracy: 0.8318181818181818
+
+Labels: Wrong sentence (1); True sentence (0)
+Accuracy: 0.8327272727272728
+Precision: 0.8765432098765432
+Recall: 0.7745454545454545
+F1 score: 0.8223938223938224
+
+Labels: Wrong sentence (0); True sentence (1)
+Precision: 0.7980456026058632
+Recall: 0.8909090909090909
+F1 score: 0.8419243986254296
