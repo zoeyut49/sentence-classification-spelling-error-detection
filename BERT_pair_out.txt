@@ -49,6 +49,7 @@ Recall: 0.7927272727272727
 F1 score: 0.83206106870229
 
 Labels: Wrong sentence (0); True sentence (1)
+Accuracy: 0.84
 Precision: 0.8106312292358804
 Recall: 0.8872727272727273
 F1 score: 0.8472222222222223
