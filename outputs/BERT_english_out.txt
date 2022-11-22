@@ -1,0 +1,24 @@
+Preprocess English dataset...
+Number of sentences: 391356
+Number of training sentence: 273949
+DONE!
+
+Epoch 0; Average train loss: 0.12706230137252117
+Accuracy: 0.9786809985775976
+Epoch 1; Average train loss: 0.056758827502001785
+Accuracy: 0.9840213956578399
+Epoch 2; Average train loss: 0.03972918606065671
+Accuracy: 0.9859889103716133
+Epoch 3; Average train loss: 0.029127895732554546
+Accuracy: 0.98695989165893
+
+Epoch 4;
+Accuracy: 0.9874794518214417
+Precision: 0.9892660581820668
+Recall: 0.9856607629427793
+F1 score: 0.987460119768652
+
+Labels: Wrong sentence (0); True sentence (1)
+Precision: 0.9857048267431793
+Recall: 0.9892991633581543
+F1 score: 0.9874987243596286

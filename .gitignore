@@ -99,3 +99,9 @@ saved_models/BERT_single_old/BERT_single_epoch16.pkl
 saved_models/BERT_single_old/BERT_single_epoch17.pkl
 saved_models/BERT_single_old/BERT_single_epoch18.pkl
 saved_models/BERT_single_old/BERT_single_epoch19.pkl
+saved_models/BERT_english/BERT_english_epoch0.pkl
+saved_models/BERT_english/BERT_english_epoch1.pkl
+saved_models/BERT_english/BERT_english_epoch2.pkl
+saved_models/BERT_english/BERT_english_epoch3.pkl
+saved_models/BERT_english/BERT_english_epoch4.pkl
+BERT_single_out2.txt
